@@ -60,7 +60,7 @@ CREATE OR REPLACE view report_stock_inventory AS (
         m.product_id as product_id, pt.categ_id as product_categ_id, l.usage as location_type, l.scrap_location as scrap_location,
         m.company_id,
         m.state as state, m.prodlot_id as prodlot_id,
-        coalesce(sum(-pp.cost_price * m.product_qty * pu.factor / pu2.factor)::decimal, 0.0) as value,
+        coalesce(sum(-pp.cost_price_db * m.product_qty * pu.factor / pu2.factor)::decimal, 0.0) as value,
         coalesce(sum(-m.product_qty * pu.factor / pu2.factor)::decimal, 0.0) as product_qty,
         sum(cast(pp.active as int)) > 0 as active
     FROM
@@ -85,7 +85,7 @@ CREATE OR REPLACE view report_stock_inventory AS (
         m.product_id as product_id, pt.categ_id as product_categ_id, l.usage as location_type, l.scrap_location as scrap_location,
         m.company_id,
         m.state as state, m.prodlot_id as prodlot_id,
-        coalesce(sum(pp.cost_price * m.product_qty * pu.factor / pu2.factor)::decimal, 0.0) as value,
+        coalesce(sum(pp.cost_price_db * m.product_qty * pu.factor / pu2.factor)::decimal, 0.0) as value,
         coalesce(sum(m.product_qty * pu.factor / pu2.factor)::decimal, 0.0) as product_qty,
         sum(cast(pp.active as int)) > 0 as active
     FROM
