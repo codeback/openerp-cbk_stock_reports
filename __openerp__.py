@@ -27,7 +27,7 @@
     'description' : "",
     'website': 'http://www.codeback.es',
     'images': [],
-    'depends': ['product_cost_incl_bom'],
+    'depends': ['cbk_product_cost_incl_bom'],
     'category': 'Warehouse Management',
     'sequence': 16,
     'demo': [],
